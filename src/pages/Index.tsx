@@ -2,8 +2,12 @@ import { useState } from "react";
 import Homepage from "@/components/Homepage";
 import ProfileInput from "@/components/ProfileInput";
 import Dashboard from "@/components/Dashboard";
+import Navigation from "@/components/Navigation";
+import AboutUs from "@/components/AboutUs";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
 
-type Page = "homepage" | "profile" | "dashboard";
+type Page = "homepage" | "profile" | "dashboard" | "about" | "search" | "college-guide" | "resources" | "testimonials" | "contact";
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState<Page>("homepage");
@@ -17,6 +21,14 @@ const Index = () => {
     setCurrentPage("homepage");
   };
 
+  const handleNavigate = (page: Page) => {
+    if (page === "search") {
+      setCurrentPage("profile");
+    } else {
+      setCurrentPage(page);
+    }
+  };
+
   const handleProfileSubmit = (data: any) => {
     setProfileData(data);
     setCurrentPage("dashboard");
@@ -24,8 +36,9 @@ const Index = () => {
 
   return (
     <div>
+      <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
       {currentPage === "homepage" && (
-        <Homepage onGetStarted={handleGetStarted} />
+        <Homepage onGetStarted={handleGetStarted} onNavigate={handleNavigate} />
       )}
       {currentPage === "profile" && (
         <ProfileInput 
@@ -36,6 +49,11 @@ const Index = () => {
       {currentPage === "dashboard" && profileData && (
         <Dashboard profileData={profileData} />
       )}
+      {currentPage === "about" && <AboutUs />}
+      {currentPage === "college-guide" && <div className="p-8">College Guide - Coming Soon</div>}
+      {currentPage === "resources" && <div className="p-8">Resources - Coming Soon</div>}
+      {currentPage === "testimonials" && <Testimonials />}
+      {currentPage === "contact" && <Contact />}
     </div>
   );
 };

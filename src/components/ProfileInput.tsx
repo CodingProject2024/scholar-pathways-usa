@@ -15,12 +15,14 @@ interface ProfileInputProps {
 const ProfileInput = ({ onBack, onSubmit }: ProfileInputProps) => {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     grade: "",
     major: "",
     immigrationStatus: "",
     countryOfOrigin: "",
     usState: "",
     residencyLength: "",
+    emailUpdates: false,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -70,7 +72,7 @@ const ProfileInput = ({ onBack, onSubmit }: ProfileInputProps) => {
           <div className="text-center space-y-2">
             <h1 className="text-3xl font-bold text-foreground">Tell us about yourself</h1>
             <p className="text-muted-foreground">
-              Help us find the best opportunities for your unique situation
+              and we'll find the right opportunities for you
             </p>
           </div>
         </div>
@@ -98,30 +100,42 @@ const ProfileInput = ({ onBack, onSubmit }: ProfileInputProps) => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name (Optional)</Label>
+                  <Label htmlFor="name">Full Name (Optional)</Label>
                   <Input
                     id="name"
-                    placeholder="Your first name"
+                    placeholder="Your full name"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="grade">Academic Level *</Label>
-                  <Select value={formData.grade} onValueChange={(value) => setFormData({...formData, grade: value})}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select your level" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {grades.map((grade) => (
-                        <SelectItem key={grade.value} value={grade.value}>
-                          {grade.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  />
+                  <p className="text-xs text-muted-foreground">We'll only use this to send you scholarship matches</p>
                 </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="grade">Grade / Academic Level *</Label>
+                <Select value={formData.grade} onValueChange={(value) => setFormData({...formData, grade: value})}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select your level" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {grades.map((grade) => (
+                      <SelectItem key={grade.value} value={grade.value}>
+                        {grade.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="space-y-2">
@@ -196,6 +210,17 @@ const ProfileInput = ({ onBack, onSubmit }: ProfileInputProps) => {
               </div>
 
               <div className="flex items-start space-x-2">
+                <Checkbox 
+                  id="updates" 
+                  checked={formData.emailUpdates}
+                  onCheckedChange={(checked) => setFormData({...formData, emailUpdates: !!checked})}
+                />
+                <Label htmlFor="updates" className="text-sm text-muted-foreground leading-relaxed">
+                  I agree to receive updates about scholarships and colleges that match my profile.
+                </Label>
+              </div>
+
+              <div className="flex items-start space-x-2">
                 <Checkbox id="privacy" />
                 <Label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed">
                   I understand that this platform is confidential and my information will not be shared with immigration authorities or used for enforcement purposes.
@@ -205,9 +230,9 @@ const ProfileInput = ({ onBack, onSubmit }: ProfileInputProps) => {
               <Button 
                 type="submit" 
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 text-lg font-medium"
-                disabled={!formData.grade || !formData.immigrationStatus || !formData.major || !formData.usState}
+                disabled={!formData.grade || !formData.immigrationStatus || !formData.major || !formData.usState || !formData.email}
               >
-                Find My Opportunities
+                View My Matches
               </Button>
             </form>
           </CardContent>
