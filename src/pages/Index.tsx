@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import AboutUs from "@/components/AboutUs";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
+import Chatbot from "@/components/Chatbot";
 
 type Page = "homepage" | "profile" | "dashboard" | "about" | "search" | "college-guide" | "resources" | "testimonials" | "contact";
 
@@ -54,6 +55,7 @@ const Index = () => {
       {currentPage === "resources" && <div className="p-8">Resources - Coming Soon</div>}
       {currentPage === "testimonials" && <Testimonials />}
       {currentPage === "contact" && <Contact />}
+      <Chatbot />
     </div>
   );
 };
