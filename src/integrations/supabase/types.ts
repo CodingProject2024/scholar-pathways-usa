@@ -14,7 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      scholarships: {
+        Row: {
+          amount: number | null
+          application_url: string | null
+          country: string | null
+          created_at: string
+          deadline: string | null
+          description: string | null
+          eligibility_criteria: string[] | null
+          gender_requirement: string | null
+          id: string
+          max_age: number | null
+          min_age: number | null
+          min_gpa: number | null
+          name: string
+          requirements: string[] | null
+          school_level: string | null
+          updated_at: string
+          visa_requirement: string | null
+        }
+        Insert: {
+          amount?: number | null
+          application_url?: string | null
+          country?: string | null
+          created_at?: string
+          deadline?: string | null
+          description?: string | null
+          eligibility_criteria?: string[] | null
+          gender_requirement?: string | null
+          id?: string
+          max_age?: number | null
+          min_age?: number | null
+          min_gpa?: number | null
+          name: string
+          requirements?: string[] | null
+          school_level?: string | null
+          updated_at?: string
+          visa_requirement?: string | null
+        }
+        Update: {
+          amount?: number | null
+          application_url?: string | null
+          country?: string | null
+          created_at?: string
+          deadline?: string | null
+          description?: string | null
+          eligibility_criteria?: string[] | null
+          gender_requirement?: string | null
+          id?: string
+          max_age?: number | null
+          min_age?: number | null
+          min_gpa?: number | null
+          name?: string
+          requirements?: string[] | null
+          school_level?: string | null
+          updated_at?: string
+          visa_requirement?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

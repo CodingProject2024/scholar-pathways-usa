@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   Search, 
   Filter, 
@@ -27,43 +28,70 @@ interface DashboardProps {
 const Dashboard = ({ profileData }: DashboardProps) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-  
-  // Mock data - in real app would come from API
-  const scholarships = [
-    {
-      id: 1,
-      title: "The Dream.US National Scholarship",
-      amount: "$33,000",
-      deadline: "February 28, 2024",
-      eligibility: ["DACA", "TPS"],
-      description: "Supports high-achieving DREAMers with tuition assistance",
-      requirements: "3.0 GPA minimum, community service",
-      eligible: profileData.immigrationStatus === "daca",
-      category: "scholarship"
-    },
-    {
-      id: 2,
-      title: "Hispanic Scholarship Fund",
-      amount: "$5,000",
-      deadline: "March 30, 2024",
-      eligibility: ["Any Status"],
-      description: "Supporting Hispanic students in higher education",
-      requirements: "Hispanic heritage, financial need",
-      eligible: true,
-      category: "scholarship"
-    },
-    {
-      id: 3,
-      title: "New American Workforce Initiative",
-      amount: "$2,500",
-      deadline: "April 15, 2024",
-      eligibility: ["Refugee", "Asylum"],
-      description: "Career development for new Americans",
-      requirements: "STEM field preference",
-      eligible: ["refugee", "asylum"].includes(profileData.immigrationStatus),
-      category: "scholarship"
+  const [scholarships, setScholarships] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchScholarships();
+  }, []);
+
+  const fetchScholarships = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('scholarships')
+        .select('*')
+        .order('deadline', { ascending: true });
+
+      if (error) {
+        console.error('Error fetching scholarships:', error);
+        return;
+      }
+
+      // Transform data to match the expected format
+      const transformedData = data?.map(scholarship => ({
+        id: scholarship.id,
+        title: scholarship.name,
+        amount: scholarship.amount ? `$${scholarship.amount.toLocaleString()}` : 'Amount varies',
+        deadline: scholarship.deadline ? new Date(scholarship.deadline).toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        }) : 'No deadline',
+        eligibility: scholarship.visa_requirement ? [scholarship.visa_requirement] : ['Any Status'],
+        description: scholarship.description || 'No description available',
+        requirements: scholarship.requirements?.join(', ') || 'See scholarship details',
+        eligible: isEligible(scholarship),
+        category: "scholarship",
+        country: scholarship.country,
+        schoolLevel: scholarship.school_level,
+        minGpa: scholarship.min_gpa,
+        genderRequirement: scholarship.gender_requirement
+      })) || [];
+
+      setScholarships(transformedData);
+    } catch (error) {
+      console.error('Error fetching scholarships:', error);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  const isEligible = (scholarship: any) => {
+    // Basic eligibility check based on profile data
+    if (scholarship.school_level && profileData.educationLevel) {
+      if (scholarship.school_level !== profileData.educationLevel) return false;
+    }
+    
+    if (scholarship.min_gpa && profileData.gpa) {
+      if (parseFloat(profileData.gpa) < scholarship.min_gpa) return false;
+    }
+
+    if (scholarship.gender_requirement && scholarship.gender_requirement !== 'any' && profileData.gender) {
+      if (scholarship.gender_requirement !== profileData.gender) return false;
+    }
+
+    return true;
+  };
 
   const colleges = [
     {
@@ -90,10 +118,23 @@ const Dashboard = ({ profileData }: DashboardProps) => {
 
   const filteredResults = [...scholarships, ...colleges].filter(item => {
     const itemName = (item as any).title || (item as any).name || '';
-    const matchesSearch = itemName.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = itemName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         item.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         (item as any).country?.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory === "all" || item.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading scholarships...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
