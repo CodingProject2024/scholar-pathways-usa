@@ -17,7 +17,6 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
     { id: "search", label: "Scholarship Search" },
     { id: "college-guide", label: "College Guide" },
     { id: "resources", label: "Resources" },
-    { id: "testimonials", label: "Testimonials" },
     { id: "contact", label: "Contact / Support" },
   ];
 
