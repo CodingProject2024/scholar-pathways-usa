@@ -52,12 +52,6 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
                 {item.label}
               </Button>
             ))}
-            <Button 
-              onClick={() => handleNavClick("profile")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium ml-2"
-            >
-              Start Your Search
-            </Button>
           </div>
         </div>
       </div>
