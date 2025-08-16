@@ -38,7 +38,7 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <GraduationCap className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-foreground">ScholarPath</span>
+            <span className="text-xl font-bold text-foreground">Immi Scholar</span>
           </div>
 
           {/* Desktop Navigation */}
