@@ -3,7 +3,6 @@ import Homepage from "@/components/Homepage";
 import ProfileInput from "@/components/ProfileInput";
 import Dashboard from "@/components/Dashboard";
 import Navigation from "@/components/Navigation";
-import BottomNavigation from "@/components/BottomNavigation";
 import AboutUs from "@/components/AboutUs";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
@@ -37,7 +36,7 @@ const Index = () => {
   };
 
   return (
-    <div className="pb-20">
+    <div>
       <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
       {currentPage === "homepage" && (
         <Homepage onGetStarted={handleGetStarted} onNavigate={handleNavigate} />
@@ -56,7 +55,6 @@ const Index = () => {
       {currentPage === "resources" && <div className="p-8">Resources - Coming Soon</div>}
       {currentPage === "testimonials" && <Testimonials />}
       {currentPage === "contact" && <Contact />}
-      <BottomNavigation currentPage={currentPage} onNavigate={handleNavigate} />
       <Chatbot />
     </div>
   );
