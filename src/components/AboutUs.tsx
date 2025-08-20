@@ -57,6 +57,30 @@ const AboutUs = () => {
         </div>
       </section>
 
+      {/* Founder's Story Section */}
+      <section className="py-16 px-4 bg-muted/30">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Founder's Story</h2>
+          </div>
+          <Card className="border-0 shadow-card bg-card">
+            <CardContent className="p-8">
+              <div className="flex flex-col lg:flex-row gap-8 items-center">
+                <div className="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Users className="w-16 h-16 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-semibold mb-4 text-center lg:text-left">Kanishk Suggula</h3>
+                  <blockquote className="text-muted-foreground leading-relaxed italic">
+                    "Hi, I'm Kanishk Suggula, the founder of Immi Scholar, and this is my story. I moved from India to the U.S. when I was four and have lived here for 13 years. I started my kindergarten here and now as a senior applying to college, I've faced many challenges because of my visa status missing out on scholarships, internships, summer camps, and many awards such as the PSAT merit Scholarship and Presidential Community Service award, despite being qualified. Choosing a major was also difficult, I love business, but visa restrictions pushed me toward STEM, but at the end I choose what I'm passionate about. That wasn't the case for many of my friends, as they had to switch majors after years of preparation just to improve their chances of staying in the U.S. These struggles inspired me to create an immigrant friendly platform that helps students find scholarships, awards, internships, jobs, and competitions they're eligible for, and guides them in selecting majors and careers based on their visa status."
+                  </blockquote>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* Vision Section */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl text-center">
@@ -88,11 +112,11 @@ const AboutUs = () => {
                 <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Kanishk Patel</h3>
+                <h3 className="text-xl font-semibold mb-2">Kanishk Suggula</h3>
                 <p className="text-muted-foreground mb-4">Founder & CEO</p>
                 <p className="text-sm text-muted-foreground">
-                  Former international student who navigated the complex world of US higher education. 
-                  Passionate about helping others find their path.
+                  Immigrant student who experienced first-hand the challenges of navigating US higher education with visa restrictions. 
+                  Created Immi Scholar to help fellow immigrant students find opportunities they're eligible for.
                 </p>
               </CardContent>
             </Card>
