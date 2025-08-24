@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, GraduationCap } from "lucide-react";
+import { Menu, GraduationCap, User } from "lucide-react";
 
 interface NavigationProps {
   currentPage?: string;
@@ -28,7 +28,19 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
   return (
     <nav className="bg-gray-800/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="flex flex-col items-center py-4">
+        <div className="flex flex-col items-center py-4 relative">
+          {/* Profile Tab - Top Right */}
+          <div className="absolute top-4 right-0">
+            <Button
+              variant="ghost"
+              onClick={() => handleNavClick("profile")}
+              className="text-sm font-medium text-white hover:text-white flex items-center gap-2"
+            >
+              <User className="w-4 h-4" />
+              Profile
+            </Button>
+          </div>
+
           {/* Full Title */}
           <div 
             className="flex items-center gap-3 cursor-pointer mb-4" 
