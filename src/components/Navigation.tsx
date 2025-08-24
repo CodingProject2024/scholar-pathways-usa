@@ -59,7 +59,11 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
                 key={item.id}
                 variant={currentPage === item.id && item.id !== "homepage" ? "secondary" : "ghost"}
                 onClick={() => handleNavClick(item.id)}
-                className="text-sm font-medium text-white hover:text-white relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-white after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className={`text-sm font-medium relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-white after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                  currentPage === item.id && item.id !== "homepage" 
+                    ? "text-black hover:text-black" 
+                    : "text-white hover:text-white"
+                }`}
               >
                 {item.label}
               </Button>
