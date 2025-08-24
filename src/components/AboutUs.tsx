@@ -72,7 +72,7 @@ const AboutUs = () => {
                 <div className="flex-1">
                   <h3 className="text-2xl font-semibold mb-4 text-center lg:text-left">Kanishk Suggula</h3>
                   <blockquote className="text-muted-foreground leading-relaxed italic">
-                    "Hi, I'm Kanishk Suggula, the founder of Immi Scholar, and this is my story. I moved from India to the U.S. when I was four and have lived here for 13 years. I started my kindergarten here and now as a senior applying to college, I've faced many challenges because of my visa status missing out on scholarships, internships, summer camps, and many awards such as the PSAT merit Scholarship and Presidential Community Service award, despite being qualified. Choosing a major was also difficult, I love business, but visa restrictions pushed me toward STEM, but at the end I choose what I'm passionate about. That wasn't the case for many of my friends, as they had to switch majors after years of preparation just to improve their chances of staying in the U.S. These struggles inspired me to create an immigrant friendly platform that helps students find scholarships, awards, internships, jobs, and competitions they're eligible for, and guides them in selecting majors and careers based on their visa status."
+                    ""Hi, I'm Kanishk Suggula, the founder of <span className="font-caveat font-bold">Immi Scholar</span>, and this is my story. I moved from India to the U.S. when I was four and have lived here for 13 years. I started my kindergarten here and now as a senior applying to college, I've faced many challenges because of my visa status missing out on scholarships, internships, summer camps, and many awards such as the PSAT merit Scholarship and Presidential Community Service award, despite being qualified. Choosing a major was also difficult, I love business, but visa restrictions pushed me toward STEM, but at the end I choose what I'm passionate about. That wasn't the case for many of my friends, as they had to switch majors after years of preparation just to improve their chances of staying in the U.S. These struggles inspired me to create an immigrant friendly platform that helps students find scholarships, awards, internships, jobs, and competitions they're eligible for, and guides them in selecting majors and careers based on their visa status.""
                   </blockquote>
                 </div>
               </div>
@@ -116,7 +116,7 @@ const AboutUs = () => {
                 <p className="text-muted-foreground mb-4">Founder & CEO</p>
                 <p className="text-sm text-muted-foreground">
                   Immigrant student who experienced first-hand the challenges of navigating US higher education with visa restrictions. 
-                  Created Immi Scholar to help fellow immigrant students find opportunities they're eligible for.
+                  Created <span className="font-caveat font-bold">Immi Scholar</span> to help fellow immigrant students find opportunities they're eligible for.
                 </p>
               </CardContent>
             </Card>
