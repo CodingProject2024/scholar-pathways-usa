@@ -8,7 +8,7 @@ const AboutUs = () => {
       <section className="py-20 px-4 bg-gradient-hero text-white">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            About ScholarPath
+            About Immi Scholar
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">
             Helping immigrant students achieve their dreams of higher education through 
@@ -25,7 +25,7 @@ const AboutUs = () => {
               <h2 className="text-3xl font-bold text-foreground mb-6">Our Mission</h2>
               <p className="text-lg text-muted-foreground mb-6">
                 We believe every student deserves access to higher education, regardless of their 
-                immigration status. ScholarPath was created to bridge the gap between immigrant 
+                immigration status. Immi Scholar was created to bridge the gap between immigrant 
                 students and the educational opportunities they deserve.
               </p>
               <p className="text-lg text-muted-foreground">
