@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Target, Eye, Heart, Users, Globe, Shield } from "lucide-react";
-import founderImage from "@/assets/founder-kanishk.png";
 
 const AboutUs = () => {
   return (
@@ -67,12 +66,8 @@ const AboutUs = () => {
           <Card className="border-0 shadow-card bg-card">
             <CardContent className="p-8">
               <div className="flex flex-col lg:flex-row gap-8 items-center">
-                <div className="w-32 h-32 flex-shrink-0">
-                  <img 
-                    src={founderImage} 
-                    alt="Kanishk Suggula, Founder of Immi Scholar" 
-                    className="w-32 h-32 rounded-full object-cover"
-                  />
+                <div className="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Users className="w-16 h-16 text-primary" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-semibold mb-4 text-center lg:text-left">Kanishk Suggula</h3>
@@ -114,12 +109,8 @@ const AboutUs = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-0 shadow-card text-center">
               <CardContent className="p-8">
-                <div className="w-24 h-24 mx-auto mb-4">
-                  <img 
-                    src={founderImage} 
-                    alt="Kanishk Suggula" 
-                    className="w-24 h-24 rounded-full object-cover"
-                  />
+                <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-12 h-12 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Kanishk Suggula</h3>
                 <p className="text-muted-foreground mb-4">Founder & CEO</p>
