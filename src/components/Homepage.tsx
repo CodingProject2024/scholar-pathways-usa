@@ -16,13 +16,13 @@ const Homepage = ({ onGetStarted, onNavigate }: HomepageProps) => {
         <div className="absolute inset-0 bg-gradient-hero opacity-5"></div>
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+            <div className="space-y-8 text-center lg:text-left">
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
                   Scholarships and college support for{" "}
                   <span className="text-primary">students like you</span>
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-2xl">
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0">
                   Navigate your college journey with confidence. Find scholarships, 
                   colleges, and resources tailored to your immigration status and goals.
                 </p>
