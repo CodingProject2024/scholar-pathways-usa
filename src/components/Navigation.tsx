@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, GraduationCap, User } from "lucide-react";
+import { Menu, User } from "lucide-react";
+import logoImage from "@/assets/logo.png";
 
 interface NavigationProps {
   currentPage?: string;
@@ -46,8 +47,8 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
             className="flex items-center gap-3 cursor-pointer mb-4" 
             onClick={() => handleNavClick("homepage")}
           >
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <GraduationCap className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 flex items-center justify-center">
+              <img src={logoImage} alt="Immi Scholar Logo" className="w-12 h-12 object-contain" />
             </div>
             <h1 className="text-4xl font-bold text-white font-caveat">Immi Scholar</h1>
           </div>
