@@ -47,7 +47,7 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
                 key={item.id}
                 variant={currentPage === item.id ? "secondary" : "ghost"}
                 onClick={() => handleNavClick(item.id)}
-                className="text-sm font-medium"
+                className="text-sm font-medium text-white hover:text-white"
               >
                 {item.label}
               </Button>
