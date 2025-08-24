@@ -116,7 +116,7 @@ const AboutUs = () => {
                 <p className="text-muted-foreground mb-4">Founder & CEO</p>
                 <p className="text-sm text-muted-foreground">
                   Immigrant student who experienced first-hand the challenges of navigating US higher education with visa restrictions. 
-                  Created Immi Scholar to help fellow immigrant students find opportunities they're eligible for.
+                  Created about Immi Scholar to help fellow immigrant students find opportunities they're eligible for.
                 </p>
               </CardContent>
             </Card>
