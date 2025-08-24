@@ -19,8 +19,8 @@ const Homepage = ({ onGetStarted, onNavigate }: HomepageProps) => {
             <div className="space-y-8 text-center lg:text-left">
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-                  Scholarships and college support for{" "}
-                  <span className="text-primary">students like you</span>
+                  Scholarships and college support<br />
+                  for <span className="text-primary">students like you</span>
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0">
                   Navigate your college journey with confidence. Find scholarships, 
