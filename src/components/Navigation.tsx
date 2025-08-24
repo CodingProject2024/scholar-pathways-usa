@@ -53,7 +53,7 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex items-center justify-between w-full max-w-4xl">
             {navItems.map((item) => (
               <Button
                 key={item.id}
