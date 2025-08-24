@@ -26,7 +26,7 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
   };
 
   return (
-    <nav className="bg-black/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 shadow-sm">
+    <nav className="bg-gray-800/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex flex-col items-center py-4">
           {/* Full Title */}
