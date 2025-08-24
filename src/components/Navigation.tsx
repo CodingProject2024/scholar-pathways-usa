@@ -26,7 +26,7 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
   };
 
   return (
-    <nav className="bg-white/95 backdrop-blur-md border-b border-border/50 sticky top-0 z-50 shadow-sm">
+    <nav className="bg-black/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex flex-col items-center py-4">
           {/* Full Title */}
@@ -37,7 +37,7 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-2xl font-bold text-foreground">Immi Scholar</h1>
+            <h1 className="text-2xl font-bold text-white">Immi Scholar</h1>
           </div>
 
           {/* Navigation Tabs */}
