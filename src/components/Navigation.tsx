@@ -49,7 +49,7 @@ const Navigation = ({ currentPage, onNavigate }: NavigationProps) => {
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-2xl font-bold text-white">Immi Scholar</h1>
+            <h1 className="text-2xl font-bold text-white font-caveat">Immi Scholar</h1>
           </div>
 
           {/* Navigation Tabs */}
